@@ -1,0 +1,28 @@
+spring:
+
+  profiles:
+    active: "${ACTIVE_PROFILES}"
+
+  application:
+    name: "tst-service"
+
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL95Dialect
+        default_schema: ${database.schema}
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: ${database.user}
+    password: ${database.password}
+    url: ${database.url}
+
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
